@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
@@ -25,15 +25,13 @@ const TopSellers = () => {
 
   const filteredBooks = selectedCategory === 'Choose a genre' ? books : books.filter(book => book.category === selectedCategory.toLowerCase())
 
-  console.log(filteredBooks)
-
-  
-
-  return (
+    return (
     <div className='py-10'>
       <h2 className='text-3xl font-semibold mb-6'>Top Sellers</h2>
+
       {/* Category Filtering */}
-      <div>
+
+      <div className='mb-8 flex items-center'>
         <select
         onChange={(e) => setSelectedCategory(e.target.value)}
         name="category" id="category" className='border bg-[#EAEAEA] border-gray-300 rounded-md px-4 py-2 focus:outline-none'>
@@ -56,7 +54,7 @@ const TopSellers = () => {
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
           1024: {
             slidesPerView: 2,
@@ -70,7 +68,7 @@ const TopSellers = () => {
         modules={[Pagination, Navigation]}
         className="mySwiper">
               {
-        filteredBooks.map((book, index) => (
+        filteredBooks?.length > 0 && filteredBooks?.map((book, index) => (
           <SwiperSlide key={index} >
             <BookCard book={book}/>
           </SwiperSlide>
@@ -79,10 +77,9 @@ const TopSellers = () => {
       }
        
       </Swiper>
-
-
     </div>
   )
 }
+
 
 export default TopSellers
