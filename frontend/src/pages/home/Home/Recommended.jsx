@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import BookCard from '../books/BookCard';
+import BookCard from '../../books/BookCard';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';

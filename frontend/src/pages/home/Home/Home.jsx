@@ -7,10 +7,10 @@ import News from './News'
 const Home = () => {
   return (
     <>
-      <Banner />
-      <TopSellers />
-      <Recommended />
-      <News />
+        <Banner/>
+        <TopSellers/>
+        <Recommended/>
+        <News/>
     </>
   )
 }
